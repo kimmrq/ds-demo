@@ -1,0 +1,107 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import { Avatar } from '../../atoms/avatar';
+import { Switch } from '../../atoms/switch';
+import { P1 } from '../../atoms/text';
+import { Link } from '../../atoms/link';
+import { Spacer } from '../../layouts/spacer';
+import { CarePathIcon } from '../../atoms/care-path-icon';
+import { MediaObject } from './';
+
+<Meta title="Molecules/MediaObject" component={MediaObject} />
+
+# MediaObject
+
+Media object is a common pattern where a media element is positioned alongside content
+
+```js
+import { MediaObject } from '@ksyos/design-system';
+```
+
+### Media object with an icon
+
+<Canvas>
+    <Story name="With icon">
+        <MediaObject
+            align="start"
+            mediaItem={<CarePathIcon icon="cardiology" size={40} />}
+            mediaSpacing="large"
+            header="Cardio (Holter)"
+            subHeader="Actief sinds 04-02-2016"
+        />
+    </Story>
+</Canvas>
+
+### Media object with an Avatar
+
+<Canvas>
+    <Story name="With Avatar">
+        <MediaObject align="center" mediaItem={<Avatar size="medium" />} header="P.J.R Bloemen" />
+    </Story>
+</Canvas>
+
+### Media object with a call to action
+
+<Canvas>
+    <Story name="With call to action">
+        <MediaObject
+            align="start"
+            mediaItem={<Avatar size="large" />}
+            mediaSpacing="large"
+            header="Verificatieapp"
+            action={<Switch ariaLabel="checkbox" onChange={() => {}} />}
+        >
+            <Spacer direction="vertical" spacing="medium" lastChildHasNoSpacing>
+                <P1 color="#6b5a45">See full example at Templates > Compositions...</P1>
+                <Link to="#" onClick={(e) => e.preventDefault()}>
+                    Verificatieapp instellen
+                </Link>
+            </Spacer>
+        </MediaObject>
+    </Story>
+</Canvas>
+
+### Note: The spacing between media and text should increase when the media element gets larger and decrease for smaller viewports
+
+<Canvas>
+    <Story name="Examples">
+        <div>
+            <MediaObject
+                align="start"
+                mediaSpacing="xlarge"
+                mediaItem={
+                    <div style={{ width: '80px', height: '80px', backgroundColor: '#ddd' }} />
+                }
+                header="Example text"
+            />
+            <MediaObject
+                align="start"
+                mediaSpacing="large"
+                mediaItem={
+                    <div style={{ width: '64px', height: '64px', backgroundColor: '#ddd' }} />
+                }
+                header="Example text"
+            />
+            <MediaObject
+                align="start"
+                mediaSpacing="medium"
+                mediaItem={
+                    <div style={{ width: '40px', height: '40px', backgroundColor: '#ddd' }} />
+                }
+                header="Example text"
+            />
+            <MediaObject
+                align="start"
+                mediaSpacing="small"
+                mediaItem={
+                    <div style={{ width: '32px', height: '32px', backgroundColor: '#ddd' }} />
+                }
+                header="Example text"
+            />
+        </div>
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={MediaObject} />

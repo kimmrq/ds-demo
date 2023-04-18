@@ -1,0 +1,15 @@
+export type CarePathIcons =
+    | 'cardiology'
+    | 'dermatology'
+    | 'mentalHealth'
+    | 'ophthalmology'
+    | 'orthopedics'
+    | 'pulmonology'
+    | 'somnology'
+    | 'nephrology'
+    | 'endocrinology'
+    | 'general'
+    | 'homeconsultation'
+    | 'corona'
+    | 'digitalconsultation'
+    | 'lab';

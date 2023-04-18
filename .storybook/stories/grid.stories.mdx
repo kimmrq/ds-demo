@@ -1,0 +1,74 @@
+import { Meta } from '@storybook/addon-docs';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
+import 'bootstrap/dist/css/bootstrap-grid.css';
+
+<Meta title="Design System/Grid" />
+
+# Grid
+
+---
+
+### 12-column
+
+The grid system is foundation for most page-level layouts.
+
+-   The grid can contain any number of columns divisable by 12.
+-   The gutter between columns defaults to 16px with options for 32px gutter or no gutter.
+-   Columns inside the grid can adjust their width at any breakpoint.
+
+> This project uses the grid system of React Bootstrap. For more information on how to use these components: [Read the docs](https://react-bootstrap.github.io/layout/grid/)
+
+export const demoRowStyles = {
+    backgroundColor: '#FFC5FB',
+};
+export const demoColStyles = {
+    backgroundColor: '#FFECFE',
+    color: '#A6069A',
+    padding: '1rem',
+};
+
+<Preview>
+    <h4 style={{ margin: '3rem 0 1rem 0' }}>Example of a 12 column layout</h4>
+    <Container>
+        <Row style={demoRowStyles}>
+            <Col sm={1}>
+                <div style={demoColStyles}>1</div>
+            </Col>
+            <Col sm={1}>
+                <div style={demoColStyles}>2</div>
+            </Col>
+            <Col sm={1}>
+                <div style={demoColStyles}>3</div>
+            </Col>
+            <Col sm={1}>
+                <div style={demoColStyles}>4</div>
+            </Col>
+            <Col sm={1}>
+                <div style={demoColStyles}>5</div>
+            </Col>
+            <Col sm={1}>
+                <div style={demoColStyles}>6</div>
+            </Col>
+            <Col sm={1}>
+                <div style={demoColStyles}>7</div>
+            </Col>
+            <Col sm={1}>
+                <div style={demoColStyles}>8</div>
+            </Col>
+            <Col sm={1}>
+                <div style={demoColStyles}>9</div>
+            </Col>
+            <Col sm={1}>
+                <div style={demoColStyles}>10</div>
+            </Col>
+            <Col sm={1}>
+                <div style={demoColStyles}>11</div>
+            </Col>
+            <Col sm={1}>
+                <div style={demoColStyles}>12</div>
+            </Col>
+        </Row>
+    </Container>
+</Preview>

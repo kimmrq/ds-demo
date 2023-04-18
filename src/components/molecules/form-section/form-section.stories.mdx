@@ -1,0 +1,30 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import { Text } from '../../atoms/text/text';
+import { FormGroup } from '../form-group/form-group';
+import { FormHeader } from '../form-header';
+import { FormToggle } from '../form-toggle';
+import { FormSection } from './';
+
+<Meta title="Molecules/FormSection" component={FormSection} />
+
+## FormSection
+
+<Canvas>
+    <Story name="Form section">
+        <FormToggle>
+            <FormSection>
+                <FormHeader title="Read form" icon="edit-light" />
+                <FormGroup label="Actief van" insetPadding>
+                    <Text fontSize={300} as="p" fontWeight="medium">
+                        04-02-2016
+                    </Text>
+                </FormGroup>
+            </FormSection>
+        </FormToggle>
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={FormSection} />

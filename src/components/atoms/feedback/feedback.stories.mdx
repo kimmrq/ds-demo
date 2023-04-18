@@ -1,0 +1,23 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import { Feedback } from './';
+
+<Meta title="Atoms/Feedback" component={Feedback} />
+
+# Feedback
+
+Feedback component used in Form Groups
+
+```js
+import { Feedback } from '@ksyos/design-system';
+```
+
+<Canvas>
+    <Story name="Default">
+        <Feedback error="Error message" />
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Feedback} />

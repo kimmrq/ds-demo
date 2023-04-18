@@ -1,0 +1,53 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs';
+import styled from 'styled-components';
+
+import { Spacer } from './';
+
+<Meta title="Layouts/Spacer" component={Spacer} />
+
+## Spacer
+
+### When to use
+
+```js
+import { Spacer } from '@ksyos/design-system';
+```
+
+export const Block = styled.div`
+    display: block;
+    border-radius: 2px;
+    height: 40px;
+    background: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+`;
+
+## Spacing for vertical layout
+
+<Preview>
+    <Story name="Vertical layout">
+        <Spacer direction="vertical" align="center">
+            <Block />
+            <Block />
+            <Block />
+        </Spacer>
+    </Story>
+</Preview>
+
+## Spacing for horizontal layout
+
+<Preview>
+    <Story name="Horizontal layout">
+        <Spacer direction="horizontal" align="center">
+            <Block />
+            <Block />
+            <Block />
+        </Spacer>
+    </Story>
+</Preview>
+
+## Props
+
+<Props of={Spacer} />

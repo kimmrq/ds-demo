@@ -1,0 +1,21 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import { NumberedBadge } from './';
+
+<Meta title="Atoms/NumberedBadge" component={NumberedBadge} />
+
+# NumberedBadge
+
+### Example of a NumberedBadge
+
+Display a number in a badge with an optional text label. Use for example in the ActionBar to display the number of selected table rows.
+
+<Canvas>
+    <Story name="NumberedBadge">
+        <NumberedBadge label="Geselecteerd" value={1} labelColor="#000" />
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={NumberedBadge} />

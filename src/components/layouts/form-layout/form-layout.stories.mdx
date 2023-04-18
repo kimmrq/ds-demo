@@ -1,0 +1,259 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import styled from 'styled-components';
+
+import { TextInput } from '../../atoms/text-input';
+import { P1, Text } from '../../atoms/text/text';
+import { InputLayout } from '../input-layout';
+import { FormLayout } from './';
+
+<Meta title="Layouts/FormLayout" component={FormLayout} />
+
+## FormLayout
+
+The FormLayout is a block container meant to create various form layouts. When component receieven item props, all children will be wrapped inside InputLayouts. This allows the spacing and sizing to be consistent. Use this if you want grouped equal columns If you need more flexibility you can use the InputLayout to control the layout of the components children.
+
+##### This container gives the ability to:
+
+-   keep the spacing consistent
+-   stack multiple children as a list
+
+### Props
+
+-   children?: React.ReactNode;
+    -   Use this variant if all children should be displayed in unequal columns, use InputLayout
+-   items?: JSX.Element[];
+    -   Use this variant if all children should have equal column sizes and spacing
+-   justify?: 'center' | 'left' | 'right' | 'space-between';
+    -   Controls the horizontal alignment of the children within the container.
+-   layout?: 'grouped' | 'condensed' | 'stacked';
+    -   Controls the layout of the children:
+    -   Use grouped when the children should be displayed without any spacing in between
+    -   Use condensed to decrease the padding between columns
+    -   Use stacked to display the children in a vertical column
+-   colSize?: 1 | 2 | 3 | 4 | 5 | 6
+    -   Use the colSize modifier to give a width, otherwise it defaults to auto width.
+
+```js
+import { FormLayout } from '@ksyos/design-system';
+```
+
+export const Block = styled.div`
+    display: block;
+    border-radius: 2px;
+    height: 40px;
+    background: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+    margin-bottom: 1rem;
+`;
+
+## Items wrapped in equal column sizes:
+
+<Canvas>
+    <Story name="Column layout">
+        <FormLayout
+            colSize={2}
+            items={[
+                <Block key={1}>item</Block>,
+                <Block key={2}>item</Block>,
+                <Block key={3}>item</Block>,
+            ]}
+        />
+    </Story>
+</Canvas>
+
+## Items wrapped condensed
+
+Use condensed to decrease the padding between columns
+
+<Canvas>
+    <Story name="Condensed">
+        <FormLayout
+            layout="condensed"
+            items={[
+                <Block key={1}>item</Block>,
+                <Block key={2}>item</Block>,
+                <Block key={3}>item</Block>,
+            ]}
+        />
+    </Story>
+</Canvas>
+
+## Items wrapped grouped
+
+Use grouped when the children should be displayed without any spacing in between
+
+<Canvas>
+    <Story name="Grouped">
+        <FormLayout
+            layout="grouped"
+            items={[
+                <Block key={1}>item</Block>,
+                <Block key={2}>item</Block>,
+                <Block key={3}>item</Block>,
+            ]}
+        />
+    </Story>
+</Canvas>
+
+## Items wrapped stacked
+
+Use stacked to display the children in a vertical column
+
+<Canvas>
+    <Story name="Stacked">
+        <FormLayout
+            layout="stacked"
+            colSize={2}
+            items={[
+                <Block key={1}>item</Block>,
+                <Block key={2}>item</Block>,
+                <Block key={3}>item</Block>,
+            ]}
+        />
+    </Story>
+</Canvas>
+
+## Items aligned left
+
+Justify props Controls the horizontal alignment of the children within the container.
+
+<Canvas>
+    <Story name="Left">
+        <FormLayout
+            justify="left"
+            colSize={1}
+            items={[
+                <Block key={1}>item</Block>,
+                <Block key={2}>item</Block>,
+                <Block key={3}>item</Block>,
+            ]}
+        />
+    </Story>
+</Canvas>
+
+## Items aligned centered
+
+Justify props Controls the horizontal alignment of the children within the container.
+
+<Canvas>
+    <Story name="Centered">
+        <FormLayout
+            justify="center"
+            colSize={1}
+            items={[
+                <Block key={1}>item</Block>,
+                <Block key={2}>item</Block>,
+                <Block key={3}>item</Block>,
+            ]}
+        />
+    </Story>
+</Canvas>
+
+## Items aligned right
+
+Justify props Controls the horizontal alignment of the children within the container.
+
+<Canvas>
+    <Story name="Right">
+        <FormLayout
+            justify="right"
+            colSize={1}
+            items={[
+                <Block key={1}>item</Block>,
+                <Block key={2}>item</Block>,
+                <Block key={3}>item</Block>,
+            ]}
+        />
+    </Story>
+</Canvas>
+
+## Items aligned with space between
+
+Justify props Controls the horizontal alignment of the children within the container.
+
+<Canvas>
+    <Story name="Space between">
+        <FormLayout
+            justify="space-between"
+            colSize={1}
+            items={[
+                <Block key={1}>item</Block>,
+                <Block key={2}>item</Block>,
+                <Block key={3}>item</Block>,
+            ]}
+        />
+    </Story>
+</Canvas>
+
+## No Wrapping
+
+Wrap prop defines whether the flex items are forced in a single line or can be flowed into multiple lines.
+
+<Canvas>
+    <Story name="No wrap">
+        <FormLayout
+            wrap="no-wrap"
+            colSize={1}
+            items={[
+                <Block key={1}>item</Block>,
+                <Block key={2}>item</Block>,
+                <Block key={3}>item</Block>,
+                <Block key={4}>item</Block>,
+                <Block key={5}>item</Block>,
+                <Block key={6}>item</Block>,
+            ]}
+        />
+    </Story>
+</Canvas>
+
+## Wrap items
+
+Wrap modifier defines whether the children are forced in a single line or can be flowed into multiple lines. Works also with condensed layout
+
+<Canvas>
+    <Story name="Wrap">
+        <FormLayout
+            layout="condensed"
+            wrap="wrap"
+            items={[
+                <Block key={1}>item</Block>,
+                <Block key={2}>item</Block>,
+                <Block key={3}>item</Block>,
+                <Block key={4}>item</Block>,
+                <Block key={5}>item</Block>,
+                <Block key={6}>item</Block>,
+            ]}
+        />
+    </Story>
+</Canvas>
+
+## Items as React children
+
+If more flexibility is needed react children can be added. Use in combination with the InputLayout to set sizes, spacing and alignment
+
+<Canvas>
+    <Story name="Children">
+        <FormLayout justify="center">
+            <InputLayout colSize={1}>
+                <TextInput handleChange={() => null} placeholder="textfield" />
+            </InputLayout>
+            <InputLayout align="center">
+                <P1>
+                    <Text as="small" fontSize={100}>
+                        t/m
+                    </Text>
+                </P1>
+            </InputLayout>
+            <InputLayout colSize={1}>
+                <TextInput handleChange={() => null} placeholder="textfield" />
+            </InputLayout>
+        </FormLayout>
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={FormLayout} />

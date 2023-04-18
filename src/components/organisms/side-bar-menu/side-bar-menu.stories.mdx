@@ -1,0 +1,64 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Organisms/SideBarMenu/Data example" />
+
+# SideBarMenu
+
+### Data example
+
+To generate a SideBarMenu, you need to provide data in the following structure.
+
+```js
+const items = [
+    {
+        itemKey: 'item1',
+        label: 'Persoonlijke instellingen',
+        items: [
+            {
+                itemKey: 'item2',
+                label: 'Email notificaties',
+                link: '/Emailnotificaties',
+                isSelected: true,
+            },
+            {
+                itemKey: 'item3',
+                label: 'Voorkeurslijst zonder link',
+                items: [
+                    {
+                        itemKey: 'item4',
+                        label: 'Cardio',
+                        link: '/Cardio',
+                    },
+                    {
+                        itemKey: 'item5',
+                        label: 'Pulmo',
+                        link: '/Pulmo',
+                    },
+                ],
+            },
+            {
+                itemKey: 'item6',
+                label: 'Voorkeurslijst met link',
+                link: '/VoorkeurslijstmetLink',
+                items: [
+                    {
+                        itemKey: 'item7',
+                        label: 'Cardio',
+                        link: '/Cardio',
+                    },
+                    {
+                        itemKey: 'item8',
+                        label: 'Pulmo',
+                        link: '/Pulmo',
+                    },
+                ],
+            },
+            {
+                itemKey: 'item9',
+                label: 'GGZ consult',
+                link: '/GGZconsult',
+            },
+        ],
+    },
+];
+```

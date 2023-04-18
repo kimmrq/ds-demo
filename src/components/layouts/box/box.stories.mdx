@@ -1,0 +1,184 @@
+import { Meta } from '@storybook/addon-docs';
+
+import { Box } from './box';
+
+<Meta title="Layouts/Box/usage" />
+
+# Box
+
+Box allows you to add layout and spacing properties
+
+### Space utilities
+
+The space utility converts shorthand margin and padding props to margin and padding CSS declarations.
+
+-   Numbers from 0 to the length of theme.space are converted to values on the space scale.
+-   Negative values can be used for negative margins.
+-   Numbers greater than the length of the theme.space array are converted to raw pixel values.
+-   String values are passed as raw CSS values.
+-   And array values are converted into responsive values.
+-   Margin and padding props follow a shorthand syntax for specifying direction.
+
+| Number scale | Token value  | Css value |
+| ------------ | :----------: | --------: |
+| 0            | kdsSpacing0  |         0 |
+| 1            | kdsSpacing1  |       4px |
+| 2            | kdsSpacing2  |       8px |
+| 3            | kdsSpacing3  |      12px |
+| 4            | kdsSpacing4  |      16px |
+| 5            | kdsSpacing5  |      20px |
+| 6            | kdsSpacing6  |      24px |
+| 7            | kdsSpacing7  |      32px |
+| 8            | kdsSpacing8  |      40px |
+| 9            | kdsSpacing9  |      48px |
+| 10           | kdsSpacing10 |      56px |
+| 11           | kdsSpacing11 |      64px |
+
+#### Code examples margin prop
+
+```
+// sets margin value of `theme.space[2]`
+<Box m={2} />
+
+// sets margin value of `-1 * theme.space[2]`
+<Box m={-2} />
+
+// sets a margin value of `16px` since it's greater than `theme.space.length`
+<Box m={16} />
+
+// sets margin `'auto'`
+<Box m='auto' />
+
+// sets margin `8px` on all viewports and `16px` from the first breakpoint and up
+<Box m={[ 2, 3 ]} />
+```
+
+### Responisve styles
+
+All style utilities (Layout and Space) can accept arrays as values for mobile-first responsive styles.
+
+The following breakpoints are used:
+
+|     Token value     | Css value |
+| :-----------------: | --------: |
+| kdsBreakpointSmall  |     576px |
+| kdsBreakpointMedium |     768px |
+| kdsBreakpointLarge  |     992px |
+| kdsBreakpointXlarge |    1200px |
+
+Below a responsive example of adding width
+
+```
+<Box
+  width={[
+    1,    // 100% below the smallest breakpoint
+    1/2,  // 50% from the next breakpoint and up
+    1/4   // 25% from the next breakpoint and up
+  ]}
+/>
+```
+
+### Layout utilities
+
+The layout utility includes style props for width, height, display, minWidth, minHeight, maxWidth, maxHeight, size, verticalAlign, overflow, overflowX, and overflowY.
+
+The width prop is transformed based on the following:
+
+-   Numbers from 0-1 are converted to percentage widths.
+-   Numbers greater than 1 are converted to pixel values.
+-   String values are passed as raw CSS values.
+-   And arrays are converted to responsive width styles.
+
+#### Code examples width
+
+```
+// width `50%`
+<Box width={1/2} />
+
+// width `256px`
+<Box width={256} />
+
+// width `'2em'`
+<Box width='2em' />
+
+// width `100%` on all viewports and `50%` from the smallest breakpoint and up
+<Box width={[ 1, 1/2 ]} />
+
+// width from `theme.sizes`
+<Box width='medium' />
+
+// display
+<Box display='inline-block' />
+<Box display={[ 'block', 'inline-block' ]} />
+
+// maxWidth
+<Box maxWidth={1024} />
+<Box maxWidth={[ 768, null, null, 1024 ]} />
+
+// minWidth
+<Box minWidth={128} />
+<Box minWidth={[ 96, 128 ]} />
+
+// height
+<Box height={64} />
+<Box height={[ 48, 64 ]} />
+
+// maxHeight
+<Box maxHeight={512} />
+<Box maxHeight={[ 384, 512 ]} />
+
+// minHeight
+<Box minHeight={512} />
+<Box minHeight={[ 384, 512 ]} />
+
+// size (width & height)
+<Box size={32} />
+<Box size={[ 32, 48 ]} />
+
+// overflow
+<Box overflow='hidden' />
+
+// overflowX
+<Box overflowX='hidden' />
+
+// overflowY
+<Box overflowY='hidden' />
+```
+
+### Flexbox utilities
+
+The flexbox utility includes style props for alignItems, alignContent, justifyItems, justifyContent, flexWrap, flexDirection, flex, flexGrow, flexShrink, flexBasis, justifySelf, alignSelf, and order.
+
+#### Code examples flex properties
+
+```
+// alignItems
+<Box alignItems='center' />
+
+// alignContent
+<Box alignContent='center' />
+
+// justifyContent
+<Box justifyContent='center' />
+
+// flexWrap
+<Box flexWrap='wrap' />
+
+// flexBasis
+<Box flexBasis='auto' />
+
+// flexDirection
+<Box flexDirection='column' />
+
+// flex
+<Box flex='1 1 auto' />
+
+// justifySelf
+<Box justifySelf='center' />
+
+// alignSelf
+<Box alignSelf='center' />
+
+// order
+<Box order='2' />
+```

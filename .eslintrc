@@ -1,0 +1,75 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 2018,
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "project": "./tsconfig.json"
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        "plugin:prettier/recommended",
+        "plugin:jsx-a11y/recommended",
+        "plugin:typescript-sort-keys/recommended"
+    ],
+    "plugins": [
+        "react",
+        "react-hooks",
+        "@typescript-eslint",
+        "prettier",
+        "simple-import-sort",
+        "unicorn",
+        "jsx-a11y",
+        "import",
+        "typescript-sort-keys"
+    ],
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        },
+        "import/resolver": {
+            "node": {
+                "paths": ["src"],
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        }
+    },
+    "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "import/prefer-default-export": "off",
+        "no-return-assign": "off",
+        "react-hooks/exhaustive-deps": "warn",
+        "react-hooks/rules-of-hooks": "error",
+        "react/no-unescaped-entities": "off",
+        "react/prop-types": "off",
+        "simple-import-sort/imports": "error",
+        "unicorn/filename-case": [
+            "error",
+            {
+                "case": "kebabCase"
+            }
+        ],
+        "no-console": "warn",
+        "no-empty": "warn",
+        "no-unused-vars": "off",
+        "react/destructuring-assignment": "warn",
+        "no-nested-ternary": "warn",
+        "import/extensions": "warn",
+        "import/no-unresolved": "warn",
+        "import/no-duplicates": "warn",
+        "import/first": "warn",
+        "react/self-closing-comp": "warn",
+        "no-else-return": "warn",
+        "no-return-await": "warn",
+        "no-unneeded-ternary": "warn"
+    }
+}

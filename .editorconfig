@@ -1,0 +1,23 @@
+# top-most EditorConfig file
+root = true
+
+### defaults
+[*]
+charset = utf-8
+
+# Unix-style newlines with
+end_of_line = lf
+
+# 4 space indentation
+indent_size = 4
+indent_style = space
+tab_width = 4
+
+# remove any whitespace characters preceding newline characters
+trim_trailing_whitespace = true
+
+# newline ending every file
+insert_final_newline = true
+
+# Forces hard line wrapping after the amount of characters specified
+max_line_length = off

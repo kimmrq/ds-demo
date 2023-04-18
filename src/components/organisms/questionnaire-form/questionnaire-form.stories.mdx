@@ -1,0 +1,87 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import { Button } from '../../atoms/button/button';
+import { TextInput } from '../../atoms/text-input';
+import { ButtonRow } from '../../molecules/button-row';
+import { FormGroup } from '../../molecules/form-group';
+import { FormSection } from '../../molecules/form-section';
+import { QuestionnaireForm, QuestionnaireFormSection, QuestionnaireIntro } from './';
+
+<Meta title="Organisms/Questionnaire Form" component={QuestionnaireForm} />
+
+## Questionnaire Form
+
+To build a form layout specific for the triage questionnaire: A set of 3 components are needed:
+
+-   QuestionnaireForm - which handles the submit
+-   QuestionnaireIntro - Presentational component for the large text
+-   QuestionnaireFormSection - Presentational component to divide the form into multiple sections
+
+```js
+import {
+    QuestionnaireForm,
+    QuestionnaireIntro,
+    QuestionnaireFormSection,
+} from '@ksyos/design-system';
+```
+
+### Form elements
+
+The rest of the form layout can made out of multiple base atoms and molecules from the Design system.
+
+-   FormSection
+-   FormGroup
+-   TextInput
+-   ButtonRow
+-   Button
+
+Below is a static mock of the first page
+
+> Note: that the styling of the "back button is a bit different" and will be added later on
+
+<Canvas>
+    <Story name="Example">
+        <QuestionnaireForm handleSubmit={() => null}>
+            <QuestionnaireFormSection>
+                <QuestionnaireIntro title="Geef je e-mail en telefoonnummer door zodat een zorgverlener je kan bereiken." />
+                <FormSection>
+                    <FormGroup label="E-mailadres">
+                        <TextInput
+                            placeholder="Voer je e-mailadres in…"
+                            value=""
+                            handleSubmit={() => null}
+                        />
+                    </FormGroup>
+                    <FormGroup label="Telefoonnummer">
+                        <TextInput
+                            placeholder="Ik ben overdag bereikbaar op…"
+                            value=""
+                            handleSubmit={() => null}
+                        />
+                    </FormGroup>
+                </FormSection>
+                <FormSection isBorderless>
+                    <ButtonRow justify="right">
+                        <Button type="button" color="blue" variant="outline" onClick={() => null}>
+                            Terug
+                        </Button>
+                        <Button type="button" variant="solid" color="blue">
+                            Volgende
+                        </Button>
+                    </ButtonRow>
+                </FormSection>
+            </QuestionnaireFormSection>
+            <QuestionnaireFormSection>
+                <QuestionnaireIntro title="In case a form needs multiple sections, just stack QuestionnaireFormSections" />
+            </QuestionnaireFormSection>
+        </QuestionnaireForm>
+    </Story>
+</Canvas>
+
+#### Props QuestionnaireForm
+
+<ArgsTable of={QuestionnaireForm} />
+
+#### Props QuestionnaireIntro
+
+<ArgsTable of={QuestionnaireIntro} />

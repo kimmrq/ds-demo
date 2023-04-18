@@ -1,0 +1,130 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import styled from 'styled-components';
+
+import { FormLayout } from '../form-layout';
+import { InputLayout } from './';
+
+<Meta title="Layouts/InputLayout" component={InputLayout} />
+
+## InputLayout
+
+The InputLayout is a versatile block container meant to create various form layouts. Because it is meant to wrap single elements use this together with the FormLayout component.
+
+##### This container gives the ability to:
+
+-   control the size of the columns
+-   keep the spacing consistent
+
+### Props
+
+-   children?: React.ReactNode;
+-   align?: 'center' | 'start' | 'end';
+    -   Align content vertically inside the InputLayout
+-   isExpanded?: boolean;
+    -   Use the isExpanded modifier on the element if you want to fill up the remaining space
+-   colSize?: 1 | 2 | 3 | 4 | 5 | 6;
+    -   Use the colSize modifier to give a width, otherwise it defaults to auto width: Note: smaller colsizes will not override a child thats has already a larger width.
+
+```js
+import { InputLayout } from '@ksyos/design-system';
+```
+
+export const Block = styled.div`
+    display: block;
+    border-radius: 2px;
+    height: 40px;
+    background: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+`;
+
+export const StyledFormLayout = styled(FormLayout)`
+    height: 80px;
+`;
+
+## Column layout
+
+<Canvas>
+    <Story name="Column layout">
+        <FormLayout>
+            <InputLayout colSize={1}>
+                <Block>Item</Block>
+            </InputLayout>
+            <InputLayout colSize={1}>
+                <Block>Item</Block>
+            </InputLayout>
+            <InputLayout colSize={1}>
+                <Block>Item</Block>
+            </InputLayout>
+            <InputLayout colSize={1}>
+                <Block>Item</Block>
+            </InputLayout>
+            <InputLayout colSize={1}>
+                <Block>Item</Block>
+            </InputLayout>
+            <InputLayout colSize={1}>
+                <Block>Item</Block>
+            </InputLayout>
+        </FormLayout>
+    </Story>
+</Canvas>
+
+## Align
+
+<Canvas>
+    <Story name="Align">
+        <StyledFormLayout>
+            <InputLayout align="start">
+                <Block>Item start</Block>
+            </InputLayout>
+            <InputLayout align="center">
+                <Block>Item center</Block>
+            </InputLayout>
+            <InputLayout align="end">
+                <Block>Item end</Block>
+            </InputLayout>
+        </StyledFormLayout>
+    </Story>
+</Canvas>
+
+## isExpanded
+
+<Canvas>
+    <Story name="isExpanded">
+        <StyledFormLayout>
+            <InputLayout>
+                <Block>Item auto width</Block>
+            </InputLayout>
+            <InputLayout isExpanded>
+                <Block>Item isExpanded</Block>
+            </InputLayout>
+            <InputLayout>
+                <Block>Item auto width</Block>
+            </InputLayout>
+        </StyledFormLayout>
+    </Story>
+</Canvas>
+
+## colSize
+
+<Canvas>
+    <Story name="colSize">
+        <StyledFormLayout>
+            <InputLayout colSize={1}>
+                <Block>1 col</Block>
+            </InputLayout>
+            <InputLayout colSize={2}>
+                <Block>2 col</Block>
+            </InputLayout>
+            <InputLayout colSize={3}>
+                <Block>3 col</Block>
+            </InputLayout>
+        </StyledFormLayout>
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={InputLayout} />

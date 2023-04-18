@@ -1,0 +1,29 @@
+import { action } from '@storybook/addon-actions';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import { ProfileBar } from './';
+
+<Meta title="Organisms/ProfileBar" component={ProfileBar} />
+
+# ProfileBar
+
+ProfileBar component
+
+```js
+import { ProfileBar } from '@ksyos/design-system';
+```
+
+<Canvas>
+    <Story name="Default">
+        <ProfileBar
+            name="P. Vermeulen"
+            organization="Huisartsenpraktijk Vermeulen"
+            at="bij"
+            onClick={action('clicked ProfileBar')}
+        />
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={ProfileBar} />

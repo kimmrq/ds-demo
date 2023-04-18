@@ -1,0 +1,54 @@
+import { action } from '@storybook/addon-actions';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import { Text } from '../../atoms/text';
+import { FormGroup } from '../form-group';
+import { ListRow } from './';
+
+<Meta title="Molecules/ListRow" component={ListRow} />
+
+### List Row
+
+Display different items in a list row. The following items can be used:
+
+1. FormGroup
+2. TextComponent
+3. Buttons
+
+Use the isBorderless property to hide the border
+
+```js
+import { ListRow } from '@ksyos/design-system';
+```
+
+### With FormGroup
+
+<Canvas>
+    <Story name="with formfield">
+        <div>
+            <ListRow>
+                <FormGroup label="Formlabel" insetPadding>
+                    <Text fontSize={300} as="p" fontWeight="medium">
+                        Use Text Component to display text inside a FormGroup
+                    </Text>
+                </FormGroup>
+            </ListRow>
+        </div>
+    </Story>
+</Canvas>
+
+### With IconButton
+
+<Canvas>
+    <Story name="with trash iconbutton">
+        <ListRow onClick={action('Clicked trash icon button')} icon="delete">
+            <Text as="p" size="p">
+                Default Text Component
+            </Text>
+        </ListRow>
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={ListRow} />
